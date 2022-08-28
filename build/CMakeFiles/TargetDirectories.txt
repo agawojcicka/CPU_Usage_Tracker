@@ -1,0 +1,3 @@
+/home/agata/cprojects/CPU_Usage_Tracker/build/CMakeFiles/rebuild_cache.dir
+/home/agata/cprojects/CPU_Usage_Tracker/build/CMakeFiles/edit_cache.dir
+/home/agata/cprojects/CPU_Usage_Tracker/build/CMakeFiles/CPU_Usage_Tracker.dir

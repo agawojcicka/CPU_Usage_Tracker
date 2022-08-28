@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra   CMakeFiles/CPU_Usage_Tracker.dir/source/main.c.o CMakeFiles/CPU_Usage_Tracker.dir/source/reader.c.o  -o CPU_Usage_Tracker 
