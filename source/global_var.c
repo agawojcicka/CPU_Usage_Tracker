@@ -7,6 +7,8 @@
 #include "cpu_stat.h"
 #include "global_var.h"
 
+pthread_mutex_t RAmutex, APmutex;
+sem_t RAsem, APsem;
 
 queueRA readAnalyseQueue;
 queueAP analysePrintQueue;

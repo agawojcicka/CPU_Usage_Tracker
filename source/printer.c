@@ -11,6 +11,8 @@
 
 void* Print(void *arg)
 {
+    printf("printer start\n");
+
     cpuUsage *tmp = DequeueAP(&analysePrintQueue);
     for (int i = 0; i < cpuCount; i++)
     {
@@ -18,4 +20,5 @@ void* Print(void *arg)
     }
     printf("\n");
     
+    printf("printer stop\n");
 }

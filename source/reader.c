@@ -9,6 +9,7 @@
 
 void* Read(void *arg)
 {
+    printf("reader start\n");
 
     FILE *fp, *cpuData;
     cpuStat tmp;
@@ -38,5 +39,5 @@ void* Read(void *arg)
     EnqueueRA(cpus, &readAnalyseQueue);
     sleep(1);
 
-    
+    printf("reader stop\n");
 }

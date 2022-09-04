@@ -11,6 +11,8 @@
 
 void* Analyse(void *arg)
 {
+    printf("analyser start\n");
+
     cpuStat *state0, *state1;  
     cpuUsage *usg = malloc(cpuCount*sizeof(cpuUsage));
     int total = 0, prevTotal = 0, idle = 0, prevIdle = 0;
@@ -41,4 +43,5 @@ void* Analyse(void *arg)
     }
     EnqueueAP(usg, &analysePrintQueue);
 
+    printf("analyser stop\n");
 }

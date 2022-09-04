@@ -37,7 +37,11 @@ void EnqueueRA(cpuStat *value, queueRA *q)
     {
         q->head = newNode;
     }
+    pthread_mutex_lock(&RAmutex);
     ++q->size;
+    if(q->size > 1) 
+        sem_post(&RAsem);
+    pthread_mutex_unlock(&RAmutex);
 }
 void EnqueueAP(cpuUsage *value, queueAP *q)
 {
@@ -54,7 +58,10 @@ void EnqueueAP(cpuUsage *value, queueAP *q)
     {
         q->head = newNode;
     }
+    pthread_mutex_lock(&APmutex);
     ++q->size;
+    sem_post(&APsem);
+    pthread_mutex_unlock(&APmutex);
 }
 
 cpuStat* DequeueRA(queueRA *q)
@@ -66,7 +73,10 @@ cpuStat* DequeueRA(queueRA *q)
         q->tail = NULL;
     
     free(tmp);
+    pthread_mutex_lock(&RAmutex);
     --q->size;
+    sem_wait(&RAsem);
+    pthread_mutex_unlock(&RAmutex);
     return result;
 }
 
@@ -84,6 +94,9 @@ cpuUsage* DequeueAP(queueAP *q)
         q->tail = NULL;
     
     free(tmp);
+    pthread_mutex_lock(&APmutex);
     --q->size;
+    sem_wait(&APsem);
+    pthread_mutex_unlock(&APmutex);
     return result;
 }
